@@ -1,0 +1,65 @@
+<!DOCTYPE HTML >
+<html lang="es">
+<head>
+	<link rel="shortcut icon" href="">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+
+<body onLoad="document.getElementById('idMathInput').focus(); updateFormula();" style="height: 100%;width: 100%">
+<div class="container-fluid">
+
+<div class="row w-100">
+	<div class="col col-md-4">
+	<input id="file-input" type="file" name="name" data="/" style="display: none;" />
+
+	<button id="openpdf" onClick="mostrar()" >Abrir PDF</button>
+		<textarea class="myTxtArea" id="idMathInput" rows=20 onKeyUp="updateFormula(this);" style="width: 100%">
+\begin{array}{l}
+
+\end{array}
+		</textarea>
+	</div>
+<div class="col col-md-8">
+	<div class="row" style="height: 200px">
+		<object id="pdf" data="" type='application/pdf' width="850px"></object>
+	</div>
+	<div class="row h6 formulaOutputContainer" id="idMathOutput"style="border-style: dotted;border-color:red" >\gamma = 1</div>
+	</div>
+</div>
+		<div class="buttonDiv">
+			<button id="idRenderNowButton" onclick="renderMath(document.getElementById('idMathInput').value)" type="button" disabled>Render now</button>
+			<button id="idSelectAllButton" onclick="document.getElementById('idMathInput').select();" type="button">Select all</button>
+		<div style="font-size: 10pt;">Realtime render: <input type="checkbox" id="realTimeCheckbox" value="ON" checked onClick="realtimeRenderClick(this);"></div>
+		</div>
+	</div>
+</div>
+
+<p class="urlDisplay" id="idURLContainer" style="visibility: false">
+	URL to your formula:
+	<textarea id="idURLTextArea" rows=1 style="min-width: 800px;"></textarea>
+	<button id="idShortURLButton" onclick="showShortURL();" type="button">Request short URL</button> from bit.ly if it is too long.
+</p>
+
+
+<div id="idExampleEqs_submenu" style="visibility: hidden; display: none; text-align: center;">
+</div>
+</div>
+	<script id="MathJax-script" async src="mathjax/tex-chtml.js"></script>
+	<script url="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+	<script url="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script>
+	function mostrar(){
+	document.getElementById("file-input").click();
+	}
+	document.getElementById('file-input').onchange = function () {
+		var filename=this.files[0].name;
+		document.getElementById('pdf').setAttribute("data",filename);
+	};
+	</script>
+
+<script type="text/javascript" src="myJS.js"></script>
+
+</body>
+</html>
