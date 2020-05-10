@@ -1,1 +1,1 @@
-cmd
+npm start

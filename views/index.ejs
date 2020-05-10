@@ -1,0 +1,22 @@
+<!DOCTYPE HTML >
+<html lang="es">
+<%- include("./include/head.ejs"); -%>
+<body>
+<div class="container-fluid" style="background-color: darkgreen">
+	<div class="row">
+		<div class="col col-md-3">
+		<textarea class="myTxtArea" id="idMathInput" rows=20 onKeyUp="updateFormula(this);" style="width: 100%;height:800px">
+\begin{array}{l}
+
+\end{array}
+		</textarea>
+		</div>
+		<div class="col col-md-9">
+			<div class="row h2 formulaOutputContainer" id="idMathOutput" style="background-color: darkgreen;color:white" ></div>
+		</div>
+	</div>
+</div>
+	<script id="MathJax-script" async src="mathjax/tex-chtml.js"></script>
+	<script type="text/javascript" src="myJS.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "name": "pizarron",
+  "version": "1.0.0",
+  "description": "Pizarron para streaming",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brakdag/pizarron.git"
+  },
+  "keywords": [
+    "pizarron",
+    "educacion"
+  ],
+  "author": "brakdag@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brakdag/pizarron/issues"
+  },
+  "homepage": "https://github.com/brakdag/pizarron#readme",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "ejs": "^3.1.2",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "path": "^0.12.7"
+  }
+}

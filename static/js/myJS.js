@@ -38,32 +38,17 @@ function realizar_calculo(text){
     
     window.updateFormula = function() {
 
-		document.getElementById('idURLTextArea').value = "";
+	
 		if (document.getElementById('idMathInput').value != '')
 		{
 			document.getElementById('idMathInput').style.backgroundImage = 'none';
-			if (document.getElementById('realTimeCheckbox').checked) {
 				renderMath(document.getElementById('idMathInput').value);
-			}
-			document.getElementById('idSelectAllButton').disabled = false;
-			document.getElementById('idURLContainer').style.visibility = 'hidden';
-			document.getElementById('idURLContainer').style.display = 'none'
 		}
 		else 
 		{
 			document.getElementById('idMathInput').style.backgroundImage = null;  // return to the old background image
-			if (document.getElementById('realTimeCheckbox').checked) {
-
-				renderMath("{}");
-			}
-		
-			document.getElementById('idSelectAllButton').disabled = true;
-		
-		}
-
-		// Make sure we're not showing the PNG image options any more
-		
-		
+			renderMath("{}");
+		}	
 	}
 
     window.realtimeRenderClick = function(id) {
