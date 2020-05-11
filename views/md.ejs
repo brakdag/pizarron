@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include("./include/head.ejs"); -%>
+<body>
+<script>
+  function send(){
+    var texto = encodeURIComponent(realizar_calculo($("#text-input").val()));
+  //  console.log(texto)
+    $.ajax({
+        url: `set?code=${texto}`, 
+        success: function (result) {
+        console.log(`${result}`); }
+    });
+  }
+
+  function realizar_calculo(text){
+    try{
+    if(text.match(/%/g).length % 2==0){
+        var start=text.indexOf("%")
+        var end=text.indexOf("%",start+1)
+        var f = text.slice(start+1,end);
+        var r = eval(f).toString()
+        text=text.replace(`%${f}%`,r)
+    }}
+    catch(err){
+        return text
+    }
+    return ((text.match(/%/g)==null)||(text.match(/%/g).length % 2 == 1))?text:realizar_calculo(text);
+}
+
+</script>
+
+<div class="container-fluid">
+    <textarea id="text-input" oninput="send()" style="width:100%;height:100%">Escribe **Markdown** aquí y **\\(\LaTeX\\)**</textarea>   
+</div>
+</body>
+
+</html>

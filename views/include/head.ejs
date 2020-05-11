@@ -3,6 +3,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="shortcut icon" href="">
 	<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
-	<script url="jquery/dist/jquery.min.js"></script>
-	<script url="bootstrap/dist/js/bootstrap.min.js"></script>
+	<style>
+		#preview {
+			font-size: 2em;
+			background-color: darkgreen;
+			color:white;
+		}
+	</style>
+		<script>  MathJax = {
+    tex: {
+     tags: 'ams',
+     macros: {
+        cuadro:['{\\fbox{$#1$}}',1],        // a simple string replacement
+        bold: ['\\boldsymbol{#1}',1] ,     // this macro has one parameter
+        ddx: ['\\frac{d#2}{d#1}', 2, 'x'], // this macro has an optional parameter that defaults to 'x'
+        abc: ['(#1)', 1, [null, '\\cba']]  // equivalent to \def\abc#1\cba{(#1)}
+      }
+    }
+  };</script>
+	<script src="jquery/dist/jquery.min.js"></script>
+	<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="markdown/lib/markdown.js"></script>
+	<script src="mathjax/es5/tex-chtml.js"></script>
+
 </head>

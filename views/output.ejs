@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include("./include/head.ejs"); -%>
+<body>
+<style>
+body{
+background-color: darkgreen;
+}
+hr{
+  background-color: white;
+}
+
+</style>
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col">
+       <div id="preview" style="font-family:Comic Sans MS;"></div>   
+       <div id="fin" >.</div>
+       </div>
+   </div>
+ </div>
+ </body>
+
+<script>
+var memory =""
+    $(document).ready(function(){
+      function actualizar() {
+       
+       document.getElementById("fin").scrollIntoView({
+    block: "center",
+    behaviour: "smooth"
+  });
+
+      	$.ajax({
+        url: `/get`, 
+        success: function (result) { 
+      if (result!=memory){
+          $("#preview").html(markdown.toHTML(decodeURIComponent(result)));
+          MathJax.texReset();
+          MathJax.typesetClear();
+          MathJax.typesetPromise([document.getElementById('preview')])   
+          memory=result;
+          }
+
+       }
+    });
+}
+      setInterval(function(){actualizar();}, 1000);
+    });
+</script> 
+
+</html>
